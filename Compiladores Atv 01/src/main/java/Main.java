@@ -40,13 +40,13 @@ public class Main {
 
 //-------------VERIFICANDO O PARSER UTILIZANDO IDENTIFICADOR
     
-    public static void main( String[] args )throws Exception{
-         String input = "let a = 33 + 5 - 8;";
-         Parser p = new Parser (input.getBytes());
-        p.parse();
+//     public static void main( String[] args )throws Exception{
+//          String input = "let a = 33 + 5 - 8;";
+//          Parser p = new Parser (input.getBytes());
+//         p.parse();
 
-    }
-}
+//     }
+// }
     // } 
 
 
@@ -58,6 +58,38 @@ public class Main {
         //      System.out.println(tk);
         // }
     // }
+    
+//-------------VERIFICANDO LET NO ANALISADOR LEXICO
+//     public static void main(String[] args)  {
+//         String input = "289";
+//         Scanner scan = new Scanner (input.getBytes());
+//         System.out.println(scan.nextToken());
+//     }
+// }
+ 
+//-------------VERIFICANDO LET NO ANALISADOR LEXICO
+//     public static void main(String[] args)  {
+//     String input = "45 variavel while if";
+//     Scanner scan = new Scanner (input.getBytes());
+//     for (Token tk = scan.nextToken(); tk.type != TokenType.EOF; tk = scan.nextToken()) {
+//             System.out.println(tk);
+//     }
+// }
+// }
+
+
+//-------------VERIFICANDO LET NO ANALISADOR LEXICO
+
+    public static void main(String[] args)  {
+    String input = "45 variavel + while < , if";
+    Scanner scan = new Scanner (input.getBytes());
+    for (Token tk = scan.nextToken(); tk.type != TokenType.EOF; tk = scan.nextToken()) {
+            System.out.println(tk);
+    }
+}
+    
+}
+ 
 
     
 

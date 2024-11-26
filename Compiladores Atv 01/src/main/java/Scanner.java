@@ -10,7 +10,27 @@ public class Scanner {
 
     static {
         keywords = new HashMap<>();
-        keywords.put("let",    TokenType.LET);
+        keywords.put("let", TokenType.LET);
+        keywords.put("while", TokenType.WHILE);
+        keywords.put("int", TokenType.INT);
+        keywords.put("class", TokenType.CLASS);
+        keywords.put("constructor", TokenType.CONSTRUCTOR);
+        keywords.put("function", TokenType.FUNCTION);
+        keywords.put("method", TokenType.METHOD);
+        keywords.put("field", TokenType.FIELD);
+        keywords.put("static", TokenType.STATIC);
+        keywords.put("var", TokenType.VAR);
+        keywords.put("char", TokenType.CHAR);
+        keywords.put("boolean", TokenType.BOOLEAN);
+        keywords.put("void", TokenType.VOID);
+        keywords.put("true", TokenType.TRUE);
+        keywords.put("false", TokenType.FALSE);
+        keywords.put("null", TokenType.NULL);
+        keywords.put("this", TokenType.THIS);        
+        keywords.put("do", TokenType.DO);
+        keywords.put("if", TokenType.IF);
+        keywords.put("else", TokenType.ELSE);
+        keywords.put("return", TokenType.RETURN);
     }
 
     public Scanner (byte[] input) {
@@ -45,22 +65,66 @@ public class Scanner {
             return number();
 
         switch (ch) {
+                case '/':
+                    advance();
+                    return new Token (TokenType.SLASH,"/");
+
                 case '+':
                     advance();
                     return new Token (TokenType.PLUS,"+");
                 case '-':
                     advance();
-                    return new Token (TokenType.MINUS,"-");
-                case '\0':
-                    return new Token (TokenType.EOF,"EOF");
-                
+                    return new Token (TokenType.MINUS,"-"); 
+                case '*':
+                    advance();
+                    return new Token (TokenType.ASTERISK,"*"); 
+                case '.':
+                    advance();
+                    return new Token (TokenType.DOT,"."); 
+                case '&':
+                    advance();
+                    return new Token (TokenType.AND,"&"); 
+                case '|':
+                    advance();
+                    return new Token (TokenType.OR,"|"); 
+                case '~':
+                    advance();
+                    return new Token (TokenType.NOT,"~"); 
+
+                case '>':
+                    advance();
+                    return new Token (TokenType.GT,">"); 
+                case '<':
+                    advance();
+                    return new Token (TokenType.LT,"<"); 
                 case '=':
                     advance();
-                    return new Token (TokenType.EQ,"=");
+                    return new Token (TokenType.EQ,"="); 
 
+                case '(':
+                    advance();
+                    return new Token (TokenType.LPAREN,"("); 
+                case ')':
+                    advance();
+                    return new Token (TokenType.RPAREN,")"); 
+                case '{':
+                    advance();
+                    return new Token (TokenType.LBRACE,"{"); 
+                case '}':
+                    advance();
+                    return new Token (TokenType.RBRACE,"}"); 
+                case '[':
+                    advance();
+                    return new Token (TokenType.LBRACKET,"["); 
+                case ']':
+                    advance();
+                    return new Token (TokenType.RBRACKET,"]"); 
                 case ';':
-                   advance();
-                   return new Token (TokenType.SEMICOLON,";");
+                    advance();
+                    return new Token (TokenType.SEMICOLON,";"); 
+                case ',':
+                    advance();
+                    return new Token (TokenType.COMMA,",");
 
                 default:
                      throw new Error("lexical error at " + ch);
