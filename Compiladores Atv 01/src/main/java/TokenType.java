@@ -1,8 +1,11 @@
+
 public enum TokenType {
 
      PLUS,MINUS, EQ, SEMICOLON,
      NUMBER,
      IDENT,
+     PRINT,
+     STRING,
 
     // keywords
     WHILE, CLASS,CONSTRUCTOR,FUNCTION,
@@ -22,7 +25,7 @@ public enum TokenType {
 
      AND, OR, NOT,
 
-     LT, GT,
+     LT, GT, ILLEGAL,
      
-     EOF
+     EOF,
 }
